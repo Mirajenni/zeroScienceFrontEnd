@@ -5,6 +5,7 @@ import App from "./App";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./Login/Login";
 import Nave from "./Login/Nave/Nave";
+import mundo from "./Mundo/mundo";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Route path="/" exact={true} component={App} />
       <Route path="/login" component={Login} />
       <Route path="/nave" component={Nave} />
+      <Route path="/mundo" component={mundo} />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")
