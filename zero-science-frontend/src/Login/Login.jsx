@@ -3,7 +3,7 @@ import "./Login.scss"
 export default class Login extends Component {
   render() {
     return (
-      <div className="content">
+      <div className="login-page-content">
         <div className="user-login">
           <h1 className="user-login__title">Login</h1>
           <form>

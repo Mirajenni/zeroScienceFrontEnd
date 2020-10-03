@@ -1,0 +1,23 @@
+.login-page-content, 
+.user-login__form-control, 
+.user-login__form-control, 
+.user-login,
+.user-login form {
+    display: flex;
+}
+.user-login__form-control, .user-login__form-control, .user-login, .user-login form {
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.login-page-content {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.user-login {
+    align-items: center;
+}
+.user-login__title {
+    margin: 0;
+}
