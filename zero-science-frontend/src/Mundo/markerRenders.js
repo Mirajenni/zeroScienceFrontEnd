@@ -1,5 +1,6 @@
 import * as TWEEN from "es6-tween";
 import * as THREE from "three";
+import Rocket from "../Assets/rocket.png";
 
 import { Marker } from "react-globe";
 
@@ -12,13 +13,16 @@ function random(scaleFactor) {
 const MARKER_COLOR = "#fcffbe";
 const MARKER_COMPANION_COLOR = "#fff9e6";
 
-export default function markerRenderer(marker){
+export default function markerRenderer(marker) {
   const size = Math.max(marker.value / 20, 1);
   const geometry = new THREE.SphereGeometry(size, 10, 10);
   const material = new THREE.MeshBasicMaterial({
-    color: new THREE.Color(MARKER_COLOR)
+    color: new THREE.Color(MARKER_COLOR),
   });
 
+  // const image = new THREE.TextureLoader().load(Rocket);
+  // const material2 = new THREE.SpriteMaterial({ map: image, color: 0xffffff });
+  // const sprite = new THREE.Sprite(material2);
   // add light
   const mesh = new THREE.Mesh(geometry, material);
   const light = new THREE.PointLight(MARKER_COLOR, 1, 0, 0);
@@ -33,10 +37,7 @@ export default function markerRenderer(marker){
       10,
       10
     );
-    var texture = new THREE.TextureLoader().load( "./Assets/rocket.png" );
-    const companionMaterial = new THREE.MeshBasicMaterial({
-      map: texture,
-    });
+    const companionMaterial = new THREE.MeshBasicMaterial({});
     const companion = new THREE.Mesh(companionGeometry, companionMaterial);
     companion.lookAt(new THREE.Vector3(0, 0, 0));
     companions.push(companion);
@@ -48,12 +49,12 @@ export default function markerRenderer(marker){
       const from = {
         opacity: 0.1,
         position: companion.position.clone().toArray(),
-        scale: Math.max(0.5, Math.random())
+        scale: Math.max(0.5, Math.random()),
       };
       const to = {
         opacity: 0.5,
         position: [random(size * 3), random(size * 3), random(size)],
-        scale: 0.01
+        scale: 0.01,
       };
       const tween = new TWEEN.Tween(from)
         .to(to, 4000)

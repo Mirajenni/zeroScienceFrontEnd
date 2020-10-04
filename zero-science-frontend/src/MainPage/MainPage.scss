@@ -4,6 +4,10 @@
   display: flex;
   font-family: "Fugaz One", cursive;
 
+  .define-color {
+    color: white;
+  }
+
   .main {
     background: #ededed;
     display: flex;
@@ -15,9 +19,15 @@
       flex: 1 1 auto;
       min-height: 1px;
       padding: 1.25rem;
-      border: 6px solid #aecbef;
+      border: 6px solid #d4d4d4;
       border-radius: 5px;
       background: url("../Assets/painel.jpg");
+
+      .card-title {
+        h5 {
+          color: white;
+        }
+      }
 
       .progress {
         margin-bottom: 20px;
@@ -31,6 +41,7 @@
 
       .main-minify-image {
         height: 2em;
+        margin-right: 0.5em;
       }
     }
 
@@ -39,6 +50,7 @@
       min-height: 1px;
       padding: 1.25rem;
       border-radius: 7px;
+      background: #031627;
 
       .card-body--flex {
         display: flex;
@@ -51,6 +63,7 @@
 
       .main-minify-image--custom {
         height: 2.2em;
+        margin-left: 1em;
       }
 
       img {
@@ -70,6 +83,10 @@
     flex-direction: column;
     margin-top: 15em;
 
+    a {
+      align-self: center;
+    }
+
     button {
       margin-left: 8em;
       margin-top: -6em;
@@ -84,5 +101,13 @@
       border: 1em solid #cfcfcf;
       border-radius: 24em;
     }
+  }
+}
+
+.texts-fonts {
+  font-family: "Fugaz One", cursive;
+
+  .text-fonts-margin {
+    margin-right: 1em;
   }
 }
