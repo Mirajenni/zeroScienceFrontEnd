@@ -1,23 +1,19 @@
-import React, { Component } from "react";
-import Globe from "worldwind-react-globe";
+
+import React, { Component } from 'react'
+import ReactGlobe from 'react-globe';
+import markers from './markers'
+import markerRenderer from './markerRenders'
 export default class mundo extends Component {
-  render() {
-    const layers = [
-      "coordinates",
-      "view-controls",
-      "stars",
-      "bing-aerial-labels",
-    ];
-    return (
-      <div className="fullscreen">
-        <Globe
-          ref={this.globeRef}
-          layers={layers}
-          latitude={34.2}
-          longitude={-119.2}
-          altitude={10e6}
-        />
-      </div>
-    );
-  }
+    
+    render() {
+        const options = {
+            markerRenderer
+          };
+        return ( <ReactGlobe
+            height="100vh"
+            markers={markers}
+            width="100vw"
+            options={options} 
+            />)
+    }
 }
