@@ -1,3 +1,30 @@
+$font-textos:  'Amaranth', sans-serif;
+$font-titulos: 'Fugaz One', cursive;
+
+.user-login__title, .user-login__form-control label {
+    font-family: $font-textos;
+    color: white;
+}
+.user-login__title, .user-login__form-control label {
+    margin: 0 0 10px 0;
+}
+.user-login__form-control input {
+    height: 3em;
+    padding: 0 0 0 5px;
+    border: 2px solid #71AAFF;
+    border-radius: 5px;
+}
+.user-login form button {
+    height: 2.5em;
+    background-color: #FFBC12;
+    border: none;
+    border-radius: 5px;
+    font-family: $font-titulos;
+    color: white;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
 .login-page-content, 
 .user-login__form-control, 
 .user-login__form-control, 
@@ -14,10 +41,13 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
+    background-color: #031627;
 }
 .user-login {
     align-items: center;
 }
-.user-login__title {
-    margin: 0;
-}
+
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Amaranth&display=swap');
