@@ -2,6 +2,7 @@
 
 .main-principal {
   display: flex;
+  place-content: center;
   font-family: "Fugaz One", cursive;
 
   .define-color {
@@ -12,7 +13,6 @@
     background: #ededed;
     display: flex;
     flex-direction: column;
-    margin-left: 15em;
     margin-top: 15em;
 
     .card-body {
