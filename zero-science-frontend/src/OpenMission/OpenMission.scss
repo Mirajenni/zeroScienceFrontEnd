@@ -1,3 +1,5 @@
+$font-textos:  'Amaranth', sans-serif;
+$font-titulos: 'Fugaz One', cursive;
 
 .openmission-page-content, .earth {
     width: 100vw;
@@ -9,6 +11,52 @@
     align-items: center;
     justify-content: center;
 }
-.earth img {
+.earth #earth-rotating {
     width: 40%;
 }
+.earth #satelite {
+    width: 3em;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    cursor: pointer;
+    transition: 250ms;
+}
+.earth #satelite:hover {
+    transform: scale(1.2);
+    transition: 250ms;
+}
+.btn-back {
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    font-family: "Fugaz One", cursive;
+    font-size: 20px;
+    text-decoration: none;
+    background-color: #1251FF;
+    color: white;
+    padding: 5px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid #1251FF;
+    transition: 250ms;
+}
+.btn-back:hover {
+    background-color: rgba(18, 81, 255, 0.6);
+    border: 2px solid #1F4DBD;
+    transition: 250ms;
+}
+.btn-back:focus {
+    border: 2px solid #001652;
+    transition: 250ms;
+}
+#foguete {
+    width: 35px;
+    vertical-align: text-bottom;
+}
+
+
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Amaranth&display=swap');
