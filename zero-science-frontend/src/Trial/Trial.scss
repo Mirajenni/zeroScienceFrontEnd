@@ -1,0 +1,35 @@
+$icone_char: 3em;
+
+.user-login__all-char_globo img {
+    max-width: 4em;
+    transform: scale(0.8);
+    filter: contrast(0.8) brightness(0.8);
+    transition: 300ms;
+}
+.user-login__all-char_globo input {
+    width: icone_char;
+    height: icone_char;
+    position: absolute;
+    opacity: 0;
+    margin: 0;
+    z-index: 10;
+}
+
+.globo_active {
+    transform: scale(1)!important;
+    filter: contrast(1) brightness(1)!important;
+    transition: 300ms;
+}
+.user-login__all-char_globo {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-trial__choose-char, .user-login__all-char {
+    display: flex;
+}
+.user-trial__choose-char {
+    flex-direction: column;
+    align-items: center;
+}
