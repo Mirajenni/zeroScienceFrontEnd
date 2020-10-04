@@ -5,14 +5,15 @@ export default class Login extends Component {
     return (
       <div className="login-page-content">
         <div className="user-login">
-          <h1 className="user-login__title">Login</h1>
-          <form>
+          <h1 className="user-login__title">Zero Science</h1>
+          <form autoComplete="off">
             <div className="user-login__form-control">
               <label htmlFor="user">Usuário</label>
               <input
                 id="user"
                 type="text"
                 name="user"
+                placeholder="Nome"
               />
             </div>
             <div className="user-login__form-control">
@@ -21,6 +22,7 @@ export default class Login extends Component {
                 id="password"
                 type="password"
                 name="password"
+                placeholder="****"
               />
             </div>
             <button
