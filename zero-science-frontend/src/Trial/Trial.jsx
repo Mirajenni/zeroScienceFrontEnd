@@ -31,6 +31,8 @@ export default class Trial extends Component {
                 <div className="user-trial">
                     <form>
                         <label className="user-trial__choose-char">
+                            Escolha seu avatar
+                            {/* radio: {this.state.char_op} */}
                             <div className="user-login__all-char">
                             <div className="user-login__all-char_globo" id="char1">
                                 <input 
@@ -83,8 +85,6 @@ export default class Trial extends Component {
                                 <img id="char5" className="img-char" src={globo} alt=""/>
                             </div>
                             </div>                           
-                                Escolha seu avatar
-                                radio: {this.state.char_op}
                         </label>
                         <div className="user-login__form-control">
                         <label htmlFor="user">Nome de usuário</label>
@@ -92,6 +92,7 @@ export default class Trial extends Component {
                             id="user"
                             type="text"
                             name="user"
+                            placeholder="Nome"
                         />
                         </div>
                     
