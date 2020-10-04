@@ -4,7 +4,11 @@ import "./OpenMission.scss"
 export default class OpenMission extends Component {
   render() {
     return (
-        <div><h1>a</h1></div>
+        <div className="openmission-page-content">
+            <div className="earth">
+
+            </div>
+        </div>
       
     );
   }
