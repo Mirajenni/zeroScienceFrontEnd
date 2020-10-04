@@ -1,7 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
+import { Carousel } from "react-bootstrap";
 import "./Trial.scss";
-import globo from "./globo.svg";
+import Avatar1 from "../Assets/avatar1.svg";
+import Avatar2 from "../Assets/avatar2.svg";
+import Avatar3 from "../Assets/avatar3.svg";
+import Avatar4 from "../Assets/avatar4.svg";
+import Avatar5 from "../Assets/avatar5.svg";
+import Nave from "../Assets/nave.svg";
 
 export default class Trial extends Component {
   constructor(props) {
@@ -11,6 +17,7 @@ export default class Trial extends Component {
       char_op: "char_option3",
     };
     this.onRadioChange = this.onRadioChange.bind(this);
+    this.ControlledCarousel = this.ControlledCarousel.bind(this);
     // this.zoomChar = this.zoomChar.bind(this)
   }
 
@@ -21,15 +28,46 @@ export default class Trial extends Component {
     });
   }
 
+  ControlledCarousel() {
+    const [index, setIndex] = useState(0);
+
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+    };
+
+    return (
+      <Carousel activeIndex={index} onSelect={handleSelect}>
+        <Carousel.Item>
+          <img className="d-block w-100" src={Avatar1} alt="First Avatar" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={Avatar2} alt="First Avatar" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={Avatar3} alt="First Avatar" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={Avatar4} alt="First Avatar" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={Avatar5} alt="First Avatar" />
+        </Carousel.Item>
+      </Carousel>
+    );
+  }
+
   render() {
+    let doido = <this.ControlledCarousel />;
+
     return (
       <div className="trial-page-content">
         <div className="user-trial">
           <form>
             <label className="user-trial__choose-char">
               Escolha seu avatar
+              {doido}
               {/* radio: {this.state.char_op} */}
-              <div className="user-login__all-char">
+              {/* <div className="user-login__all-char">
                 <div className="user-login__all-char_globo" id="char1">
                   <input
                     type="radio"
@@ -85,7 +123,7 @@ export default class Trial extends Component {
                   />
                   <img id="char5" className="img-char" src={globo} alt="" />
                 </div>
-              </div>
+              </div> */}
             </label>
             <div className="user-login__form-control">
               <label htmlFor="user">Nome de usuário</label>
@@ -103,6 +141,7 @@ export default class Trial extends Component {
               </button>
             </Link>
             <a href="">Já tenho uma conta</a>
+            <img className="nave" src={Nave} alt="Nave" />
           </form>
         </div>
       </div>

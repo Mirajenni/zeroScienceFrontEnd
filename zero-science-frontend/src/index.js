@@ -9,7 +9,6 @@ import OpenMission from "./OpenMission/OpenMission";
 import MainPage from "./MainPage/MainPage";
 import mundo from "./Mundo/mundo";
 import Planets from "./Planets/Planets";
-import Trial from "./Trial/Trial";
 
 ReactDOM.render(
   <BrowserRouter>
