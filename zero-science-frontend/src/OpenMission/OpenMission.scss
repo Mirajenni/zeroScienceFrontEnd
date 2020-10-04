@@ -1,0 +1,14 @@
+
+.openmission-page-content, .earth {
+    width: 100vw;
+    height: 100vh;
+    background: #031627;
+}
+.earth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.earth img {
+    width: 40%;
+}
