@@ -112,3 +112,4 @@ export default class Trial extends Component {
         );
     }
 }
+}
