@@ -14,6 +14,7 @@ ReactDOM.render(
       <Route path="/login" component={Login} />
       <Route path="/nave" component={Nave} />
       <Route path="/mundo" component={mundo} />
+      <Route path="/principal" component={mundo} />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

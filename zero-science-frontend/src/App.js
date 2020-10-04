@@ -8,7 +8,8 @@ function App() {
   return (
 
     <div className="App">
-      <Link to="/mundo">click aqui para ir pra /mundo</Link>  
+      <Link to="/mundo">click aqui para ir pra /mundo</Link>
+      <Link to="/principal">click aqui para ir pra /mundo</Link>
         <header className="App-header">
           <p>
             Edit <code>src/App.js</code> and save to reload.

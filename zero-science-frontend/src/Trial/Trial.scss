@@ -1,0 +1,76 @@
+$icone_char: 3em;
+$font-textos:  'Amaranth', sans-serif;
+$font-titulos: 'Fugaz One', cursive;
+
+.user-login__all-char_globo img {
+    max-width: 4em;
+    transform: scale(0.6);
+    filter: contrast(0.8) brightness(0.8);
+    transition: 300ms;
+}
+.user-login__all-char_globo input {
+    width: 4em;
+    height: 4em;
+    position: absolute;
+    opacity: 0;
+    margin: 0;
+    z-index: 10;
+}
+
+.globo_active {
+    transform: scale(1)!important;
+    filter: contrast(1) brightness(1)!important;
+    transition: 300ms;
+}
+.user-login__all-char_globo {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-trial__choose-char, .user-login__all-char {
+    display: flex;
+}
+.user-login__all-char {
+    margin: 20px 0;
+}
+.user-trial__choose-char {
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF;
+    font-family: $font-titulos;
+}
+
+.user-trial {
+    background-color: #031627;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-trial form {
+    display: flex;
+    flex-direction: column;
+}
+.user-trial button {
+    height: 2.5em;
+    background-color: #FFBC12;
+    border: none;
+    border-radius: 5px;
+    font-family: $font-titulos;
+    color: white;
+    font-size: 15px;
+    margin-top: 10px;
+}
+.user-trial a {
+    font-family: $font-textos;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Amaranth&display=swap');

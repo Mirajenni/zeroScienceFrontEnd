@@ -1,10 +1,9 @@
 import React, { Component , useState} from 'react'
 import ReactGlobe from 'react-globe';
-import "./mundo.scss"
 //import defaultmarkers from "./markers.js"
 
 function markerTooltipRenderer(marker) {
-  return `Nome do satélite: ${marker.city}. (Sua Altitude: ${marker.value})`;
+  return `Nome do Satelite: ${marker.city} (Sua Altitude: ${marker.value})`;
 }
 
 const options = {
@@ -49,7 +48,8 @@ function App() {
         >
           <p>{details}</p>
           <p>
-            EVENT: type={event.type}, position={JSON.stringify(event.pointerEventPosition)})
+            EVENT: type={event.type}, position=
+            {JSON.stringify(event.pointerEventPosition)})
           </p>
         </div>
       )}
@@ -65,7 +65,10 @@ function App() {
   );
 }
 
-export default class mundo extends Component {  
+const rootElement = document.getElementById("root");
+
+
+export default class principal extends Component {  
   constructor(props) {
     super(props);
     this.state = {
@@ -75,21 +78,20 @@ export default class mundo extends Component {
   }
 
   componentDidMount() {
-    fetch("https://107227b604b2.ngrok.io/getSatellitesNear")
+    fetch("https://107227b604b2.ngrok.io/getSatellitesFile")
       .then(res => res.json())
       .then(
         (result) => {
+          console.log(result)
           console.log(defaultmarkers)
-          for (let index = 0; index < Object.keys(result).length; index++) {
-            var array = result[index]['above']
-            console.log("Conjunto de SAT: ", array)
-            for (let jndex = 0; jndex < array.length; jndex++) {
-              var sat_point = array[jndex];
-              console.log(array[jndex])
-              defaultmarkers.push({id: sat_point["satid"], city: sat_point["satname"], color: 'blue' ,coordinates: [sat_point["satlat"], sat_point["satlng"]], value: 70})
+         for (let index = 0; index < Object.keys(result).length; index++) {
+                var sat_name = result[index]['info']['satname']
+                var sat_id = result[index]['info']['satid']
+                var sat_lat =  result[index]['positions']['0']['satlatitude']
+                var sat_lon =  result[index]['positions']['0']['satlongitude']
+                defaultmarkers.push({id: sat_id, city: sat_name, color: 'blue' ,coordinates: [sat_lat, sat_lon], value: 70})
+                console.log(defaultmarkers)
             }
-          }
-          console.log(defaultmarkers)
           this.setState({
             isLoaded: true,
           });
