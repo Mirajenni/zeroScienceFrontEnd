@@ -27,11 +27,23 @@ export default class Planets extends Component {
     return (
       <Tooltip className="texts-fonts" id="button-tooltip" {...props}>
         MARTE <br />
-        VOCÊ PRECISA DE <img src={Fuel} /> 3 <br />
+        VOCÊ PRECISA DE <img src={Fuel} alt="Gasolina" /> 12 <br />
         <Button disabled={true}>
-          <img className="text-fonts-margin" src={Cadeado} />
+          <img className="text-fonts-margin" src={Cadeado} alt="Cadeado" />
           BLOQUEADO
         </Button>
+      </Tooltip>
+    );
+  }
+
+  renderTooltipPermited(props) {
+    return (
+      <Tooltip className="texts-fonts" id="button-tooltip" {...props}>
+        TERRA <br />
+        EXPLORE AGORA, GASTE: <img src={Fuel} alt="Gasolina" /> 3 <br />
+        <Link to="/mundo">
+          <Button>EXPLORAR</Button>
+        </Link>
       </Tooltip>
     );
   }
@@ -45,7 +57,13 @@ export default class Planets extends Component {
         </h2>
         <div className="planets-lines">
           <div id="wrapper">
-            <img className="circle" src={Earth} alt="#" />
+            <OverlayTrigger
+              placement="bottom"
+              delay={{ show: 250, hide: 400 }}
+              overlay={this.renderTooltipPermited}
+            >
+              <img className="circle" src={Earth} alt="#" />
+            </OverlayTrigger>
             <div class="line-top"></div>
             <OverlayTrigger
               placement="bottom"

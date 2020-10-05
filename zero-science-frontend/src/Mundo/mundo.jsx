@@ -1,18 +1,27 @@
-import React, { Component , useState} from 'react'
-import ReactGlobe from 'react-globe';
-import { Button } from 'react-bootstrap';
-import { Modal } from 'react-bootstrap';
-import "./mundo.scss"
+import React, { Component, useState } from "react";
+import ReactGlobe from "react-globe";
+import { Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import Fuel from "../Assets/fuel.svg";
+import { Link } from "react-router-dom";
+import Nave from "../Assets/nave.svg";
+import "./mundo.scss";
 import * as THREE from "three";
 //import defaultmarkers from "./markers.js"
 
-function markerRenderer(marker){
+let sat = {
+  name: "",
+  altitude: "",
+};
+
+function markerRenderer(marker) {
   const size = (marker.value - 0) / (100 - 0);
-  if(size === 0) size = 1
+  console.log(size);
+  if (size === 0) size = 1;
   const boxgeometry = new THREE.BoxGeometry(5, 5, size); //Aqui utiliza width, height, depth. Modificar o segundo parâmetro para altura.
 
   const material = new THREE.MeshBasicMaterial({
-    color: "purple" //poderia randomizar cor se tivesse tempo.
+    color: "purple", //poderia randomizar cor se tivesse tempo.
   });
 
   //eometry.rotateX(2.4);
@@ -23,11 +32,13 @@ function markerRenderer(marker){
 }
 
 function markerTooltipRenderer(marker) {
+  sat.name = marker.city;
+  sat.altitude = marker.value;
   return `Nome do satélite: ${marker.city}. (Sua Altitude: ${marker.value})`;
 }
 
 const options = {
-  markerRenderer
+  markerRenderer,
 };
 
 let defaultmarkers = [];
@@ -43,14 +54,14 @@ function App() {
       type: "CLICK",
       marker,
       markerObjectID: markerObject.uuid,
-      pointerEventPosition: { x: event.clientX, y: event.clientY }
+      pointerEventPosition: { x: event.clientX, y: event.clientY },
     });
     setDetails(markerTooltipRenderer(marker));
   }
   function onDefocus(previousFocus) {
     setEvent({
       type: "DEFOCUS",
-      previousFocus
+      previousFocus,
     });
     setDetails(null);
   }
@@ -58,46 +69,45 @@ function App() {
   return (
     <div>
       {details && (
-        <div
-          style={{
-            background: "white",
-            position: "absolute",
-            fontSize: 20,
-            bottom: 0,
-            right: 0,
-            padding: 12
-          }}
-        >
-          <p>{details}</p>
+        <div className="display-none-force">
           <p>
-            EVENT: type={event.type}, position={JSON.stringify(event.pointerEventPosition)})
+            EVENT: type={event.type}, position=
+            {JSON.stringify(event.pointerEventPosition)})
           </p>
         </div>
       )}
-      
+
       <ReactGlobe
         height="100vh"
-        markers = {defaultmarkers}
+        markers={defaultmarkers}
         options={options}
         width="100vw"
         onClickMarker={onClickMarker}
         onDefocus={onDefocus}
       />
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>{defaultmarkers.city}</Modal.Title>
-        </Modal.Header>
+      <Modal className="fonts-adjust" show={show} onHide={handleClose}>
+        <Modal.Title>{defaultmarkers.city}</Modal.Title>
+        <text>VISITOU O SATÉLITE: {sat.name}</text> <br />
+        <text>SUA ALTITUDE ATUAL É: {sat.altitude}</text> <br />
+        <text>VOCÊ GANHOU</text>
+        <img src={Fuel} alt="Gasolina" /> <text>3</text>
         <Button variant="secondary" onClick={handleClose}>
-          Visitar
+          Fechar
         </Button>
       </Modal>
-      
+
+      <Link to="/home">
+        <Button className="imagem-nave-btn">
+          <img className="imagem-nave" src={Nave} alt="Nave" />
+          VOLTAR
+        </Button>
+      </Link>
     </div>
   );
 }
 
-export default class mundo extends Component {  
+export default class mundo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -108,20 +118,26 @@ export default class mundo extends Component {
 
   componentDidMount() {
     fetch("https://02a1c813c089.ngrok.io//getSatellitesNear")
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(
         (result) => {
-          console.log(defaultmarkers)
+          console.log(defaultmarkers);
           for (let index = 0; index < Object.keys(result).length; index++) {
-            var array = result[index]['above']
-            console.log("Conjunto de SAT: ", array)
+            var array = result[index]["above"];
+            console.log("Conjunto de SAT: ", array);
             for (let jndex = 0; jndex < array.length; jndex++) {
               var sat_point = array[jndex];
-              console.log(array[jndex])
-              defaultmarkers.push({id: sat_point["satid"], city: sat_point["satname"], color: 'blue' ,coordinates: [sat_point["satlat"], sat_point["satlng"]], value: sat_point["satalt"]})
+              console.log(array[jndex]);
+              defaultmarkers.push({
+                id: sat_point["satid"],
+                city: sat_point["satname"],
+                color: "blue",
+                coordinates: [sat_point["satlat"], sat_point["satlng"]],
+                value: sat_point["satalt"],
+              });
             }
           }
-          console.log(defaultmarkers)
+          console.log(defaultmarkers);
           this.setState({
             isLoaded: true,
           });
@@ -132,20 +148,19 @@ export default class mundo extends Component {
         (error) => {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
-      )
-    }
+      );
+  }
 
   render() {
-    const loaded = this.state.isLoaded
+    const loaded = this.state.isLoaded;
     let app;
-    if(loaded){
-      app = <App/>
-    }
-    else{
-      app = ""
+    if (loaded) {
+      app = <App />;
+    } else {
+      app = "";
     }
     return app;
   }

@@ -66,64 +66,6 @@ export default class Trial extends Component {
             <label className="user-trial__choose-char">
               Escolha seu avatar
               {avataresz}
-              {/* radio: {this.state.char_op} */}
-              {/* <div className="user-login__all-char">
-                <div className="user-login__all-char_globo" id="char1">
-                  <input
-                    type="radio"
-                    name="char_op"
-                    value="char_option1"
-                    checked={this.state.char_op === "char_option1"}
-                    onChange={this.onRadioChange}
-                  />
-                  <img id="char1" className="img-char" src={globo} alt="" />
-                </div>
-                <div className="user-login__all-char_globo" id="char2">
-                  <input
-                    type="radio"
-                    name="char_op"
-                    value="char_option2"
-                    checked={this.state.char_op === "char_option2"}
-                    onChange={this.onRadioChange}
-                  />
-                  <img id="char2" className="img-char" src={globo} alt="" />
-                </div>
-                <div className="user-login__all-char_globo" id="char3">
-                  <input
-                    type="radio"
-                    name="char_op"
-                    value="char_option3"
-                    checked={this.state.char_op === "char_option3"}
-                    onChange={this.onRadioChange}
-                  />
-                  <img
-                    id="char3"
-                    className="img-char globo_active"
-                    src={globo}
-                    alt=""
-                  />
-                </div>
-                <div className="user-login__all-char_globo" id="char4">
-                  <input
-                    type="radio"
-                    name="char_op"
-                    value="char_option4"
-                    checked={this.state.char_op === "char_option4"}
-                    onChange={this.onRadioChange}
-                  />
-                  <img id="char4" className="img-char" src={globo} alt="" />
-                </div>
-                <div className="user-login__all-char_globo" id="char5">
-                  <input
-                    type="radio"
-                    name="char_op"
-                    value="char_option5"
-                    checked={this.state.char_op === "char_option5"}
-                    onChange={this.onRadioChange}
-                  />
-                  <img id="char5" className="img-char" src={globo} alt="" />
-                </div>
-              </div> */}
             </label>
             <div className="user-login__form-control">
               <label htmlFor="user">Nome de usuário</label>
@@ -140,7 +82,6 @@ export default class Trial extends Component {
                 Começar
               </button>
             </Link>
-            <a href="">Já tenho uma conta</a>
             <img className="nave" src={Nave} alt="Nave" />
           </form>
         </div>
