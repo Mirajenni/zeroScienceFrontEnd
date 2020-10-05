@@ -15,9 +15,10 @@ let sat = {
 };
 
 function markerRenderer(marker) {
-  const size = (marker.value - 0) / (100 - 0);
-  console.log(size);
+
+  let size = (marker.value - 0) / (100 - 0);
   if (size === 0) size = 1;
+  if (size >= 1000000) size = size/1000
   const boxgeometry = new THREE.BoxGeometry(5, 5, size); //Aqui utiliza width, height, depth. Modificar o segundo parâmetro para altura.
 
   const material = new THREE.MeshBasicMaterial({
