@@ -1,1 +1,4 @@
-# Desafio Orbital Sky
+#Comandos 
+
+**npm install**\
+**npm start**\
