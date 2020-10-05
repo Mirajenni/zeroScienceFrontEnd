@@ -1,4 +1,4 @@
-# APLICAÇÃO: <a>https://5f7ab4b33c9b703646bfab8f--brave-knuth-956e78.netlify.app/home</a>
+# APLICAÇÃO: <a>https://5f7ab4b33c9b703646bfab8f--brave-knuth-956e78.netlify.app/</a>
 
 
 # Desafio Orbital Sky
