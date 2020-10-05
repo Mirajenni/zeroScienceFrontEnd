@@ -78,7 +78,7 @@ export default class principal extends Component {
   }
 
   componentDidMount() {
-    fetch("https://02a1c813c089.ngrok.io//getSatellitesFile")
+    fetch("https://zeroscapp.herokuapp.com/getSatellitesNear")
       .then(res => res.json())
       .then(
         (result) => {

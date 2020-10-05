@@ -118,7 +118,7 @@ export default class mundo extends Component {
   }
 
   componentDidMount() {
-    fetch("https://02a1c813c089.ngrok.io//getSatellitesNear")
+    fetch("https://zeroscapp.herokuapp.com/getSatellitesNear")
       .then((res) => res.json())
       .then(
         (result) => {
