@@ -19,6 +19,7 @@
     "react-globe.gl": "^2.12.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "three": "^0.121.1",
     "worldwind-react-globe": "^1.2.0"
   },
   "scripts": {

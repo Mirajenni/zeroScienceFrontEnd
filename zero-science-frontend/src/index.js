@@ -19,6 +19,7 @@ ReactDOM.render(
       <Route path="/open-mission" component={OpenMission} />
       <Route path="/home" component={MainPage} />
       <Route path="/mundo" component={mundo} />
+      <Route path="/principal" component={mundo} />
       <Route path="/planets" component={Planets} />
     </Switch>
   </BrowserRouter>,

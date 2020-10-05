@@ -57,7 +57,7 @@ export default class Trial extends Component {
   }
 
   render() {
-    let doido = <this.ControlledCarousel />;
+    let avataresz = <this.ControlledCarousel />;
 
     return (
       <div className="trial-page-content">
@@ -65,7 +65,7 @@ export default class Trial extends Component {
           <form>
             <label className="user-trial__choose-char">
               Escolha seu avatar
-              {doido}
+              {avataresz}
               {/* radio: {this.state.char_op} */}
               {/* <div className="user-login__all-char">
                 <div className="user-login__all-char_globo" id="char1">
