@@ -78,7 +78,7 @@ export default class principal extends Component {
   }
 
   componentDidMount() {
-    fetch("https://107227b604b2.ngrok.io/getSatellitesFile")
+    fetch("https://02a1c813c089.ngrok.io//getSatellitesFile")
       .then(res => res.json())
       .then(
         (result) => {

@@ -1,4 +1,4 @@
-import * as TWEEN from "es6-tween";
+/*import * as TWEEN from "es6-tween";
 import * as THREE from "three";
 import Rocket from "../Assets/rocket.png";
 
@@ -83,4 +83,13 @@ export default function markerRenderer(marker) {
     animate();
   });
   return mesh;
-}
+}*/
+
+import * as TWEEN from "es6-tween";
+
+import react from "react"
+import { Marker } from "react-globe";
+
+
+
+
