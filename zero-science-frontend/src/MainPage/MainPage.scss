@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
+
+.main-principal {
+  display: flex;
+  place-content: center;
+  font-family: "Fugaz One", cursive;
+
+  .define-color {
+    color: white;
+  }
+
+  .main {
+    background: #ededed;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15em;
+
+    .card-body {
+      flex: 1 1 auto;
+      min-height: 1px;
+      padding: 1.25rem;
+      border: 6px solid #d4d4d4;
+      border-radius: 5px;
+      background: url("../Assets/painel.jpg");
+
+      .card-title {
+        h5 {
+          color: white;
+        }
+      }
+
+      .progress {
+        margin-bottom: 20px;
+        margin-top: -10px;
+
+        .progress-bar {
+          background-color: #aecbef;
+          color: #000;
+        }
+      }
+
+      .main-minify-image {
+        height: 2em;
+        margin-right: 0.5em;
+      }
+    }
+
+    .card-body--custom {
+      flex: 1 1 auto;
+      min-height: 1px;
+      padding: 1.25rem;
+      border-radius: 7px;
+      background: #031627;
+
+      .card-body--flex {
+        display: flex;
+        flex-direction: row;
+
+        .card-body-prizes {
+          margin-left: 2em;
+        }
+      }
+
+      .main-minify-image--custom {
+        height: 2.2em;
+        margin-left: 1em;
+      }
+
+      img {
+        height: 5em;
+      }
+    }
+
+    .button-adjust-blue {
+      margin-top: 2em;
+      display: flex;
+      margin-left: 6em;
+    }
+  }
+
+  .earth-adjust {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15em;
+
+    a {
+      align-self: center;
+    }
+
+    button {
+      margin-left: 8em;
+      margin-top: -6em;
+      background-color: #ffbc12;
+      border: none;
+    }
+
+    img {
+      height: 25em;
+      align-self: center;
+      margin-left: 8em;
+      border: 1em solid #cfcfcf;
+      border-radius: 24em;
+    }
+  }
+}
+
+.texts-fonts {
+  font-family: "Fugaz One", cursive;
+
+  .text-fonts-margin {
+    margin-right: 1em;
+  }
+}

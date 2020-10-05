@@ -1,12 +1,8 @@
 import React from "react";
-import {Link} from "react-router-dom"
 import "./App.scss";
-
-const Login = () => <h2>Login</h2>;
 
 function App() {
   return (
-
     <div className="App">
       <Link to="/mundo">click aqui para ir pra /mundo</Link>
       <Link to="/principal">click aqui para ir pra /mundo</Link>
