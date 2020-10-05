@@ -69,7 +69,13 @@ export default class Trial extends Component {
             </label>
             <div className="user-login__form-control">
               <label htmlFor="user">Nome de usuário</label>
-              <input id="user" type="text" name="user" placeholder="Nome" />
+              <input
+                id="user"
+                type="text"
+                name="user"
+                placeholder="Nome"
+                required="true"
+              />
             </div>
 
             <Link to="/home">
@@ -78,6 +84,7 @@ export default class Trial extends Component {
                 theme="contained-green"
                 className="user-trial__submit-button"
                 rounded
+                aria-required="true"
               >
                 Começar
               </button>
