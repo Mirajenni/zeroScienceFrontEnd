@@ -8,21 +8,32 @@ import Nave from "../Assets/nave.svg";
 import "./mundo.scss";
 import * as THREE from "three";
 //import defaultmarkers from "./markers.js"
+//Ajeitar a altura relativa
+//Tentar plotar satélites importantes: ISS e HUBBLE
+//Tentar plotar satélites de acordo com a localização dada pelo get do front (usuário)
 
 let sat = {
   name: "",
   altitude: "",
 };
 
-function markerRenderer(marker) {
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
+function markerRenderer(marker) {
   let size = (marker.value - 0) / (100 - 0);
-  if (size === 0) size = 1;
-  if (size >= 1000000) size = size/1000
-  const boxgeometry = new THREE.BoxGeometry(5, 5, size); //Aqui utiliza width, height, depth. Modificar o segundo parâmetro para altura.
+  if (size == 0) size = 1;
+  if (size >= 10000000.000) size = (size/1000);
+  const boxgeometry = new THREE.BoxGeometry(5, 5, size); //Aqui utiliza width, height, depth.
 
   const material = new THREE.MeshBasicMaterial({
-    color: "purple", //poderia randomizar cor se tivesse tempo.
+    color: marker.color, 
   });
 
   //eometry.rotateX(2.4);
@@ -35,7 +46,10 @@ function markerRenderer(marker) {
 function markerTooltipRenderer(marker) {
   sat.name = marker.city;
   sat.altitude = marker.value;
-  return `Nome do satélite: ${marker.city}. (Sua Altitude: ${marker.value})`;
+  sat.date = marker.date;
+  sat.id = marker.id;
+  return `Nome do satélite: ${marker.city}. (Sua Altitude: ${marker.value}). 
+  (Sua Data: ${marker.date}). (Seu ID: ${marker.id}). (Sua Cor: ${marker.color})`;
 }
 
 const options = {
@@ -89,8 +103,10 @@ function App() {
 
       <Modal className="fonts-adjust" show={show} onHide={handleClose}>
         <Modal.Title>{defaultmarkers.city}</Modal.Title>
-        <text>VISITOU O SATÉLITE: {sat.name}</text> <br />
-        <text>SUA ALTITUDE ATUAL É: {sat.altitude}</text> <br />
+        <text>PARABÉNS!</text>
+        <text>Visitou o satélite: {sat.name} - ID {sat.id}</text> 
+        <text>Altitude atual: {sat.altitude}km</text>
+        <text>Data de lançamento: {sat.date}</text> <br />
         <text>VOCÊ GANHOU</text>
         <img src={Fuel} alt="Gasolina" /> <text>3</text>
         <Button variant="secondary" onClick={handleClose}>
@@ -132,7 +148,8 @@ export default class mundo extends Component {
               defaultmarkers.push({
                 id: sat_point["satid"],
                 city: sat_point["satname"],
-                color: "blue",
+                color: getRandomColor(),
+                date: sat_point["launchDate"],
                 coordinates: [sat_point["satlat"], sat_point["satlng"]],
                 value: sat_point["satalt"],
               });
